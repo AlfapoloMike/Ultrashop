@@ -1,13 +1,16 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import {CardContainerStyled, DataContainerStyled, DigimonNameStyled, PriceContainerStyled} from './CardsStyle'
+import { useDispatch, useSelector } from 'react-redux'
+import {AddToCartMessage, CardContainerStyled, DataContainerStyled, DigimonCardTextContainer, DigimonNameStyled, PriceContainerStyled} from './CardsStyle'
 import * as actionCart from '../../redux/cart/cart-actions'
 
 
 const CardDigimon = (props) => {
 
-const { nombre, tipo, nivel, precio, id} = props
+const stockSelected = useSelector(state => state.cart.cartItems)
+const { nombre, tipo, nivel, precio, id, elemento} = props
+const findDigimon = stockSelected.find(stock => stock.id === id)
 const nombreLenght = nombre.length
+
 
 const dispatch = useDispatch()
 
@@ -15,21 +18,33 @@ const dispatch = useDispatch()
     <>
     <CardContainerStyled>
         <img src={require(`../../assets/images/digimon/${nombre.toLowerCase()}.png`)}/>
+        <DigimonCardTextContainer>
         <DigimonNameStyled nombre={nombreLenght}>{nombre}</DigimonNameStyled>
         <DataContainerStyled>Tipo: {tipo}</DataContainerStyled>
         <DataContainerStyled>Nivel: {nivel}</DataContainerStyled>
+        <DataContainerStyled>Elemento: {elemento}</DataContainerStyled>
         <PriceContainerStyled>${precio}</PriceContainerStyled>
-        <h2>{}</h2>
         <div>
-        <button
-        onClick={()=>dispatch(actionCart.addCart(props))}
-        >Agregar al carrito
-        </button>        
+        {
+          findDigimon ?
+          stockSelected.map(stock =>{
+            if(stock.id === id && stock.quantity >0){
+              return <p>Cantidad en carrito: {stock.quantity}</p> 
+            }
+          }):
+          <p>Agregar al carrito</p>
+        }
         <button
         onClick={()=>dispatch(actionCart.reduceCart(id))}
-        >Restar del carrito
+        disabled={findDigimon!== undefined ? false : true}
+        >-
+        </button>
+        <button
+        onClick={()=>dispatch(actionCart.addCart(props))}
+        >+
         </button>
         </div>
+        </DigimonCardTextContainer>
     </CardContainerStyled>
     </>
   )

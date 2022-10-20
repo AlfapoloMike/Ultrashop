@@ -10,7 +10,7 @@ export const addItemToCart=(cartItems, product)=>{
         );
       }
     
-      return [...cartItems, { ...product, quantity: 1 }];
+      return [...cartItems, { ...product, quantity: 1}];
 }
 
 export const reduceItemInCart=(cartItems, id)=>{

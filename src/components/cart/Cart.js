@@ -15,7 +15,7 @@ const dispatch = useDispatch()
     >Vaciar carrito</button>
     {
         digimons.map(digimon=>(
-        <CartCard {...digimon} />
+        <CartCard {...digimon} key={digimon.id} />
       ))
     }
     

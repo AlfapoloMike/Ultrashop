@@ -6,7 +6,7 @@ import { filtering } from '../../utility/filter'
 import { INITIAL_LIMIT } from '../../utility/pagination'
 import { NoFoundDigimon } from '../noDigimonFound/NoFoundDigimon'
 import CardDigimon from './CardDigimon'
-import {CardsContainerStyled} from './CardsStyle'
+import {CardsContainerStyled, ShowMoreLessButtonContainerStyled} from './CardsStyle'
 
 
 const CardsDigimons = () => {
@@ -23,18 +23,6 @@ useEffect(()=> setLimit(INITIAL_LIMIT),[typeSelected,levelSelected])
 
 return (
   <>
-    <button
-    onClick={()=>setLimit(prevLimit => prevLimit - INITIAL_LIMIT)}
-    disabled={INITIAL_LIMIT===limit}
-    >
-      ver menos
-    </button>
-    <button
-    onClick={()=>setLimit(prevLimit => prevLimit + INITIAL_LIMIT)}
-    disabled={TotalDigimons <= limit}
-    >
-      ver mas
-    </button>
     <CardsContainerStyled>
 
         { digimonsFiltered.length === 0 ? 
@@ -50,7 +38,21 @@ return (
        }
  
         
-    </CardsContainerStyled> 
+    </CardsContainerStyled>
+    <ShowMoreLessButtonContainerStyled>
+    <button
+    onClick={()=>setLimit(prevLimit => prevLimit - INITIAL_LIMIT)}
+    disabled={INITIAL_LIMIT===limit}
+    >
+      ver menos
+    </button>
+    <button
+    onClick={()=>setLimit(prevLimit => prevLimit + INITIAL_LIMIT)}
+    disabled={TotalDigimons <= limit}
+    >
+      ver mas
+    </button>
+    </ShowMoreLessButtonContainerStyled>
     </>
   )
 }
