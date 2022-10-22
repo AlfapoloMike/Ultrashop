@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {AddToCartMessage, CardContainerStyled, DataContainerStyled, DigimonCardTextContainer, DigimonNameStyled, PriceContainerStyled} from './CardsStyle'
 import * as actionCart from '../../redux/cart/cart-actions'
+import { motion } from 'framer-motion'
 
 
 const CardDigimon = (props) => {
@@ -16,7 +17,9 @@ const dispatch = useDispatch()
 
   return (
     <>
-    <CardContainerStyled>
+    <CardContainerStyled
+    as={motion.div} whileHover={{scale:1.05}}
+    >
         <img src={require(`../../assets/images/digimon/${nombre.toLowerCase()}.png`)}/>
         <DigimonCardTextContainer>
         <DigimonNameStyled nombre={nombreLenght}>{nombre}</DigimonNameStyled>

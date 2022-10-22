@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { TotalDigimons } from '../../data/Digimons'
-import { selectedLevel } from '../../redux/level/level-actions'
 import { filtering } from '../../utility/filter'
 import { INITIAL_LIMIT } from '../../utility/pagination'
 import { NoFoundDigimon } from '../noDigimonFound/NoFoundDigimon'
@@ -23,6 +22,7 @@ useEffect(()=> setLimit(INITIAL_LIMIT),[typeSelected,levelSelected])
 
 return (
   <>
+
     <CardsContainerStyled>
 
         { digimonsFiltered.length === 0 ? 
@@ -53,6 +53,7 @@ return (
       ver mas
     </button>
     </ShowMoreLessButtonContainerStyled>
+
     </>
   )
 }

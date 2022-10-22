@@ -1,6 +1,7 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const CardContainerStyled = styled.div`
+export const CardContainerStyled = styled(motion.div)`
 
 width:fit-content;;
 max-width:20rem;
@@ -10,6 +11,7 @@ flex-direction:column;
 text-align:center;
 margin:1rem;
 border-radius:20px;
+margin-top:10rem;
 
 
 *{
