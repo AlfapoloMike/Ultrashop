@@ -11,7 +11,7 @@ flex-direction:column;
 text-align:center;
 margin:1rem;
 border-radius:20px;
-margin-top:10rem;
+
 
 
 *{
@@ -28,7 +28,7 @@ img {
     background:#dedede;
     border-radius:20px 20px 0 0;
 }
-`;
+`
 export const DigimonCardTextContainer = styled.div`
 
 border-width: 5px;
@@ -69,6 +69,8 @@ flex-wrap:wrap;
 width: 100rem;
 margin:auto;
 justify-content:center;
+padding-top:10rem;
+
 `
 
 export const ShowMoreLessButtonContainerStyled = styled.div`
@@ -87,7 +89,9 @@ button{
     
 }
 button:disabled{
-    opacity:0.6; 
+    color:grey;
+    border-style:solid;
+    border-color:grey;
     
 }
 

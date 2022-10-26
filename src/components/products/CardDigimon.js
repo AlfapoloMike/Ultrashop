@@ -13,6 +13,7 @@ const findDigimon = stockSelected.find(stock => stock.id === id)
 const nombreLenght = nombre.length
 
 
+
 const dispatch = useDispatch()
 
   return (
@@ -32,7 +33,7 @@ const dispatch = useDispatch()
           findDigimon ?
           stockSelected.map(stock =>{
             if(stock.id === id && stock.quantity >0){
-              return <p>Cantidad en carrito: {stock.quantity}</p> 
+              return <p key={stock.id} >Cantidad en carrito: {stock.quantity} </p> 
             }
           }):
           <p>Agregar al carrito</p>

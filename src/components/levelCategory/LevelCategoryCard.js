@@ -13,6 +13,10 @@ const dispatch = useDispatch()
     <CardLevelContainerStyled
     onClick={()=> dispatch(levelActions.selectedLevel(level))}
     selected = {selectedLevel === title}
+    whileHover={{
+      scale:1.1, rotate:[0,8,-8,8,0]
+    }}
+    transition={{type:"tween"}}
     >
       <h2>{title}</h2>
       <img src={require(`../../assets/images/categories/levels/${title.toLowerCase()}.png`)}/>

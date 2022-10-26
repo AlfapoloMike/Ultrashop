@@ -1,18 +1,40 @@
+import { onAuthStateChanged } from "firebase/auth";
+import { onSnapshot } from "firebase/firestore";
+import { useDispatch } from "react-redux";
+import Navbar from "./components/navbar/Navbar";
+import { auth, createUserProfileDocument } from "./firebase/firebase-utils";
+import Routes from "./routes/Routes";
+import * as userActions from "./redux/user/user-actions";
+import { useEffect } from "react";
 
-import Cart from './components/cart/Cart';
-import LevelCategory from './components/levelCategory/LevelCategory';
-import Navbar from './components/navbar/Navbar';
-import TypeCategory from './components/typeCategory/TypeCategory';
-import DigimonProducts from './pages/DigimonProducts/DigimonProducts';
+function onAuthStateChange(cb, action) {
+  onAuthStateChanged(auth, async userAuth => {
+    if (userAuth) {
+      const userRef = await createUserProfileDocument(userAuth);
+
+      onSnapshot(userRef, snapShot =>
+        cb(action({ id: snapShot.id, ...snapShot.data() }))
+      );
+    } else {
+      cb(action(null));
+    }
+  });
+}
+
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const unsuscribe = onAuthStateChange(dispatch, userActions.setCurrentUser);
+    return () => unsuscribe();
+  }, [dispatch]);
+
+
   return (
     <>
-    <Navbar></Navbar>
-    <DigimonProducts/>
-    <LevelCategory></LevelCategory>
-    <TypeCategory></TypeCategory>
-    {/* <Cart></Cart> */}
+      <Navbar></Navbar>
+      <Routes></Routes>
     </>
   );
 }

@@ -16,6 +16,10 @@ const TypeCategoryCard = (props) => {
       <CardTypeContainerStyled
       onClick={()=>dispatch(typeActions.selectedType(types))}
       selected = {selectedType === title}
+      whileHover={{
+        scale:1.1, rotate:[0,8,-8,8,0]
+      }}
+      transition={{type:"tween"}}
       >
         <h2>{title}</h2>
         <img src={require(`../../assets/images/categories/types/${title.toLowerCase()}.png`)}/>

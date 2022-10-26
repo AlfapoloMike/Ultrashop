@@ -8,11 +8,14 @@ const LevelCategory = () => {
 const levels = useSelector(state => state.level.digimonsLevels)
 
   return (
+    <>
     <LevelCardsContainerStyled>
       {levels.map(level =>(
         <LevelCategoryCard {...level} key={level.id} />
       ))}
     </LevelCardsContainerStyled>
+    </>
+    
   )
 }
 

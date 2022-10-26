@@ -1,8 +1,8 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 
-
-export const CardLevelContainerStyled = styled.div`
+export const CardLevelContainerStyled = styled(motion.div)`
 
 display:flex;
 flex-direction:row;
@@ -42,3 +42,4 @@ export const LevelCardsContainerStyled = styled.div`
     width:60rem;
     margin:auto;
 `
+

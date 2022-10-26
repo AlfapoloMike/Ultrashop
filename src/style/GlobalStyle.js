@@ -20,7 +20,7 @@ body {
     padding: 0;
     background-image: url(${background});
     background-repeat: repeat-y;
-    background-size:100%;
+    background-size:100vw;
     font-family: 'Montserrat', sans-serif;
     color: white;
     overflow-x: hidden

@@ -1,12 +1,22 @@
-import React from 'react'
-import CardsDigimons from '../../components/products/CardsDigimons'
+import { motion } from "framer-motion";
+import React from "react";
+import { useSelector } from "react-redux";
+import Cart from "../../components/cart/Cart";
+import AllFilters from "../../components/filters/AllFilters";
+import CardsDigimons from "../../components/products/CardsDigimons";
+import { ItemsToBlur } from "./DigimonProductsStyle";
+
 
 const DigimonProducts = () => {
-  return (
-    <>
-    <CardsDigimons/>
-    </>
-  )
-}
+const hiddenMenu = useSelector(state => state.cart.hiddenMenu)
 
-export default DigimonProducts
+  return (
+    <> 
+      <Cart/>
+      <AllFilters />
+      <CardsDigimons/>
+    </>
+  );
+};
+
+export default DigimonProducts;

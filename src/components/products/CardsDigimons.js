@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { TotalDigimons } from '../../data/Digimons'
 import { filtering } from '../../utility/filter'
 import { INITIAL_LIMIT } from '../../utility/pagination'
+import { lowStockGenerator, recomendGenerator } from '../../utility/recommendedGenerator'
 import { NoFoundDigimon } from '../noDigimonFound/NoFoundDigimon'
 import CardDigimon from './CardDigimon'
 import {CardsContainerStyled, ShowMoreLessButtonContainerStyled} from './CardsStyle'
@@ -16,7 +17,6 @@ const [limit, setLimit] = useState(INITIAL_LIMIT)
 const typeSelected = useSelector(state =>state.types.selectedType)
 const levelSelected = useSelector(state =>state.level.selectedLevel)
 const digimonsFiltered = digimons.filter(digimon =>filtering(digimon,digimon.tipo,typeSelected)).filter(digimon =>filtering(digimon,digimon.nivel,levelSelected))
-
 
 useEffect(()=> setLimit(INITIAL_LIMIT),[typeSelected,levelSelected])
 

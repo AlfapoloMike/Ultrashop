@@ -64,7 +64,7 @@ export const digimons = [{
     evolucion: 'Angemon',
     lineaEvolutiva: 'Patamon',
     precio: '300',
-    stock: '5',
+    stock: '1',
 },
 {
     id:5,
@@ -253,7 +253,7 @@ export const digimons = [{
     evolucion: 'Angewomon',
     lineaEvolutiva: 'Tailmon',
     precio: '650',
-    stock: '3',
+    stock: '1',
 },
 {
     id:16,
@@ -270,7 +270,7 @@ export const digimons = [{
     evolucion: 'Zudomon',
     lineaEvolutiva: 'Gomamon',
     precio: '500',
-    stock: '3',
+    stock: '1',
 },
 {
     id:17,
@@ -372,7 +372,7 @@ export const digimons = [{
     evolucion: 'Rosemon',
     lineaEvolutiva: 'Palmon Togemon',
     precio: '800',
-    stock: '4',
+    stock: '2',
 },
 {
     id:23,

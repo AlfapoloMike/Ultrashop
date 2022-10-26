@@ -1,7 +1,8 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 
-export const CardTypeContainerStyled = styled.div`
+export const CardTypeContainerStyled = styled(motion.div)`
 
 display:flex;
 flex-direction:row;
@@ -23,6 +24,7 @@ margin:1rem;
 :hover{
     background:#0f1027;
     color:white;
+    cursor:pointer;
 }
 
 
