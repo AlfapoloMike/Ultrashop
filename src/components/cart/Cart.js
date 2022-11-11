@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CartCard from "./CartCard";
 import * as cartAction from "../../redux/cart/cart-actions";
@@ -6,37 +6,28 @@ import {
   AllCardsContainer,
   ArrowIcon,
   BlurBackground,
-  BoxStyled,
   CartContainerStyled,
   CartIconContainerStyled,
-  CartIconStyled,
   CartInfoContainer,
   CloseButtonStyled,
-  ColumnCartContainer,
-  EmptyCartButtonStyled,
   EmptyCartMessage,
   EndShopCartButtonStyled,
-  FullCartContainer,
-  InfoCartContainer,
-  TestContainer,
   TrashICon,
   UpperCartInfoContainer,
 } from "./CartStyle";
 import { totalItemsCart, totalPrice } from "../../utility/cartInfo";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const Cart = () => {
-  const currentCart = useSelector((state) => state.cart);
-  const { cartItems:cart, hiddenMenu:hiddenmenu} = currentCart
-
-
-  const digimons = useSelector((state) => state.cart.cartItems);
-  const total = totalPrice(digimons);
-  const quantity = totalItemsCart(digimons);
+  const {cartItems , hiddenMenu } = useSelector((state) => state.cart)
+  const total = totalPrice(cartItems);
+  const quantity = totalItemsCart(cartItems);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (hiddenmenu) {
+    if (hiddenMenu) {
       dispatch(cartAction.toggleCartHidden());
     }
   }, [dispatch]);
@@ -48,16 +39,16 @@ const Cart = () => {
 
   return (
     <>
-      { hiddenmenu && 
+      { hiddenMenu && 
         (<BlurBackground
           onClick={() => dispatch(cartAction.toggleCartHidden())}
-          hiddenmenu={hiddenmenu}
+          hiddenMenu={hiddenMenu}
         />)
       }
 
       <CartContainerStyled
         as={motion.div}
-        animate={hiddenmenu ? "open" : "closed"}
+        animate={hiddenMenu ? "open" : "closed"}
         variants={variants}
         transition={{ type: "tween" }}
         initial={false}
@@ -68,9 +59,9 @@ const Cart = () => {
           </motion.div>
           <h2>Productos</h2>
         </UpperCartInfoContainer>
-        {cart.length > 0 ? (
+        {cartItems.length > 0 ? (
           <AllCardsContainer>
-            {digimons.map((digimon) => (
+            {cartItems.map((digimon) => (
               <CartCard {...digimon} key={digimon.id} />
             ))}
           </AllCardsContainer>
@@ -94,7 +85,9 @@ const Cart = () => {
             >
               <TrashICon onClick={() => dispatch(cartAction.clearCart())} />
             </motion.div>
+            <a as={Link} onClick={()=>navigate("/Checkout")} >
             <EndShopCartButtonStyled>Finalizar compra</EndShopCartButtonStyled>
+            </a>
             <ArrowIcon />
           </CartIconContainerStyled>
         </CartInfoContainer>

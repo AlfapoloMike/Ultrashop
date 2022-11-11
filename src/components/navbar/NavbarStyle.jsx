@@ -39,7 +39,6 @@ export const IconCart = styled(IoCartOutline)`
 
 width:3rem;
 height:auto;
-margin:0 2rem 0 2rem;
 
 `
 
@@ -47,5 +46,5 @@ export const IconProfile = styled(RiUserFill)`
 
 width:2rem;
 height:auto;
-margin:0 2rem 0 0;
+margin:0 2rem 0 2rem;
 `

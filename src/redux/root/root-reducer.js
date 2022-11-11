@@ -3,6 +3,7 @@ import {persistReducer} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import cartReducer  from "../cart/cart-reducer"
 import levelsReducer from "../level/level-reducer"
+import ordersReducer from "../orders/orders-reducer"
 import digimonsReducer from "../products/digimon-reducer"
 import typesReducer from "../type/type-reducer"
 import userReducer from "../user/user-reducer"
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
     digimons: digimonsReducer,
     types:typesReducer,
     level:levelsReducer,
+    orders:ordersReducer,
 });
 
 export default persistReducer(persisConfig,rootReducer)

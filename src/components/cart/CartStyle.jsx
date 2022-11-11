@@ -14,6 +14,7 @@ border-radius:20px;
 margin:0.2rem;
 margin-left:2vw;
 
+
 :hover{
     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
@@ -75,6 +76,7 @@ position:fixed;
 right:0;
 top:0;
 box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+z-index:100;
 `
 export const UpperCartInfoContainer = styled.div`
     height:15%;    
@@ -199,8 +201,8 @@ export const BlurBackground = styled(motion.div)`
   width:75vw;
   height: 100vh;
 
-  ${({ hiddenmenu }) =>
-    hiddenmenu &&
+  ${({ hiddenMenu }) =>
+  hiddenMenu &&
     `
       backdrop-filter: blur(4px);
     `}

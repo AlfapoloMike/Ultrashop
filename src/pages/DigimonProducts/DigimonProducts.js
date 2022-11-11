@@ -12,7 +12,6 @@ const hiddenMenu = useSelector(state => state.cart.hiddenMenu)
 
   return (
     <> 
-      <Cart/>
       <AllFilters />
       <CardsDigimons/>
     </>

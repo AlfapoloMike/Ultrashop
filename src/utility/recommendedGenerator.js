@@ -25,7 +25,6 @@ export const lowStockGenerator=(digimons)=>{
 
         const random = Math.floor(Math.random() * max)
         const add = digimons.find(digimon => digimon.id === random)
-        console.log(random)
         if(random>0){
             if(add.stock < 5  && stockArray.indexOf(add)===-1){
                 stockArray = [...stockArray, add]

@@ -18,6 +18,7 @@ html{
 body {
     margin: 0;
     padding: 0;
+    background:#0f1027;
     background-image: url(${background});
     background-repeat: repeat-y;
     background-size:100vw;

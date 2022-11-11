@@ -1,18 +1,16 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import CheckoutProductCard from "./CheckoutProductCard";
+import React from 'react'
+import CheckoutContainer from '../../components/checkout/CheckoutContainer'
+
 
 const Checkout = () => {
 
-const cartItems = useSelector((state) => state.cart.cartItems);
-
   return (
     <>
-      {cartItems.map((item) => (
-        <CheckoutProductCard {...item} key={item.id} />
-      ))}
-    </>
-  );
-};
+        <CheckoutContainer>
 
-export default Checkout;
+        </CheckoutContainer>
+    </>
+  )
+}
+
+export default Checkout
